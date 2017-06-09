@@ -5,7 +5,7 @@ const resultFormat = require('./lib/resultFormat');
 
 scanFiles(config.projectPath, config.ignore).then(files => {
   return Promise.all(files.map(file => {
-    return parse(file, config.scope);
+    return parse(file, config.scope, config.babel);
   }))
 }).then(res => {
   resultFormat(res, config.projectPath);
